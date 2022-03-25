@@ -1,7 +1,7 @@
 import { Button } from "@mui/material"
 import axios from "axios"
 import { useState, useEffect} from "react"
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export default function Formulario(props){
     let { id } = useParams();
@@ -59,7 +59,7 @@ return(
 <form>
 <div>
 <label>Nombre del curso</label>
-<input type="text" name="nombre" value={course.course_name} id="course_name" />
+<input type="text" name="nombre" id="course_name" />
 </div>
 <div>
 <label>Fecha de inicio</label>
@@ -69,7 +69,7 @@ return(
 <label>Fecha de finalizacion</label>
 <input type="date" name="fecha_final" id="fecha_final" />
 </div>
-<Button  onClick={()=>{
+<Button component={Link } to ='/' onClick={()=>{
     id !== "0" ? putCourse() : postCourse();
 }}>Actualizar</Button>
 </form>
